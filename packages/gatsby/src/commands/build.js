@@ -13,7 +13,7 @@ function reportFailure(msg, err: Error) {
   report.panic(msg, err)
 }
 
-async function html(program: any) {
+module.exports = async function build(program: any) {
   const { graphqlRunner } = await bootstrap(program)
   // Copy files from the static directory to
   // an equivalent static directory within public.
@@ -48,6 +48,7 @@ async function html(program: any) {
   activity.end()
 
   await apiRunnerNode(`onPostBuild`, { graphql: graphqlRunner })
+
+  report.info(`Done building in ${process.uptime()} sec`)
 }
 
-module.exports = html
