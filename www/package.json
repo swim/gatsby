@@ -5,7 +5,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "bluebird": "^3.4.6",
-    "gatsby": "^1.9.10",
+    "gatsby": "file:../packages/gatsby",
     "gatsby-link": "^1.6.13",
     "gatsby-plugin-canonical-urls": "^1.0.4",
     "gatsby-plugin-catch-links": "^1.0.6",

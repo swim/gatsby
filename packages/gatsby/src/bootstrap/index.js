@@ -31,9 +31,17 @@ const { writePages } = require(`../internal-plugins/query-runner/pages-writer`)
 
 const preferDefault = m => (m && m.default) || m
 
-module.exports = async (program: any) => {
-  // Fix program directory path for windows env.
-  program.directory = slash(program.directory)
+type BootstrapArgs = {
+  directory: string,
+  prefixPaths?: boolean,
+}
+
+module.exports = async (args: BootstrapArgs) => {
+  const program = {
+    ...args,
+    // Fix program directory path for windows env.
+    directory: slash(args.directory),
+  }
 
   store.dispatch({
     type: `SET_PROGRAM`,
