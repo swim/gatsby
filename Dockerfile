@@ -1,7 +1,7 @@
 # Create a standalone instance of GraphiQL populated with gatsbyjs.org's data
 # ---
 # TODO: Can we do this all on Alpine for a smaller image?
-FROM node:8
+FROM node:8-alpine
 
 WORKDIR /usr/src/app
 COPY . .
